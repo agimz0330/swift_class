@@ -9,7 +9,7 @@ import SwiftUI
 struct ContentView: View {
     let MinionsColor:[Double]=[127,62,152]
     var body: some View {
-        HStack{
+        VStack{
             // text
             Text("Booms !!")
                 .foregroundColor(Color.orange)
@@ -289,7 +289,7 @@ struct MinionsClothesView: View {
                 //left_button
                 Path(ellipseIn: CGRect(x: 119, y: 295, width: 7, height: 7)).fill(Color.black)
                 //right_button
-                Path(ellipseIn: CGRect(x: 217, y: 296, width: 7, height: 7)).fill(Color.black)
+                Path(ellipseIn: CGRect(x: 215, y: 296, width: 7, height: 7)).fill(Color.black)
             }
             //口袋
             MinionsPocket()..stroke(style: StrokeStyle(lineWidth:8, lineJoin: .round))
@@ -303,7 +303,7 @@ struct MinionsCloth1:Shape{
             path.move(to: CGPoint(x: 118, y: 291))// 左上角start
             path.addQuadCurve(to: CGPoint(x:219,y:293), control: CGPoint(x:168,y:301))// -
             path.addQuadCurve(to: CGPoint(x:242,y:330), control: CGPoint(x:217,y:330))// L
-            path.addCurve(to: CGPoint(x:100,y:329), control1: CGPoint(x:212,y:375), control2: CGPoint(x:121,y:368))// U
+            path.addCurve(to: CGPoint(x:100,y:329), control1: CGPoint(x:213,y:378), control2: CGPoint(x:120,y:371))// U
             path.addQuadCurve(to: CGPoint(x:118,y:291), control: CGPoint(x:120,y:319))// L
             path.closeSubpath()
         }
