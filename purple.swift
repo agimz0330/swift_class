@@ -234,7 +234,7 @@ struct MinionsLeg:Shape{
 struct MinionsGlassesView: View {
     var body: some View {
         ZStack{
-            Path(roundedRect :CGRect(x:95,y:184,width:150,height: 20))
+            Path(roundedRect :CGRect(x:95,y:184,width:148,height: 18), cornerRadius: 3)
                 .fill(Color.black)
             MinionsSingleGlassesView()
             MinionsSingleGlassesView().rotation3DEffect(.degrees(180),axis:(x:0.0,y:1.0,z:0.0))
