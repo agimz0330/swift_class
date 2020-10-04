@@ -168,7 +168,7 @@ struct MinionsTeeth:Shape{
         }
     }
 }
-/*
+
 struct MinionsArm:Shape{
     func path(in rect: CGRect) -> Path {
         Path{ (path) in
@@ -356,5 +356,5 @@ struct MinionsPocket:Shape{
         }
     }
 }
-*/
+
 
