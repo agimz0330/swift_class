@@ -1,24 +1,27 @@
 //
 //  ContentView.swift
-//  ios0930
+//  hw1
 //
-//  Created by User13 on 2020/9/30.
+//  Created by User19 on 2020/10/5.
 //
 import SwiftUI
 
 struct ContentView: View {
     let MinionsColor:[Double]=[127,62,152]
     var body: some View {
-        VStack{
+        ZStack{
+            Image("background")
+                .resizable()
+                .scaledToFill()
+                .frame(minWidth: 0, maxWidth: .infinity)
+                .edgesIgnoringSafeArea(.all)
+//                .contrast(-30)
             // text
-            Text("Booms !!")
-                .foregroundColor(Color.orange)
-            ZStack{
-                /*Image("background")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(minWidth: 0, maxWidth: .infinity)
-                    .edgesIgnoringSafeArea(.all)*/
+            Text("Boo !!")
+                .foregroundColor(Color.white)
+//                .font(.custom("con"), size: 50))
+                .position(x:180,y:100)
+            Group{
                 Group{
                     // hands
                     MinionsArm().stroke(style: StrokeStyle(lineWidth:8, lineJoin: .round))
@@ -44,7 +47,7 @@ struct ContentView: View {
                 MinionsGlassesView()
                 // clothes
                 MinionsClothesView()
-            }
+            }.offset(x: 10, y: 120)
         }
     }
 }
@@ -120,8 +123,8 @@ struct MinionsMouthView:View{
                 Path(ellipseIn: CGRect(x: 151, y: 265, width: 25, height: 12))
                                     .fill(Color(red: 235/255, green: 120/255, blue: 166/255))
             }
-            MinionsTeeth().fill(Color.white).rotation3DEffect(.degrees(180),axis:(x:1.0,y:1.0,z:0.0))////////////??????????????????
-            MinionsTeeth().stroke(style: StrokeStyle(lineWidth:2, lineJoin: .round))
+            MinionsTeeth().fill(Color.white).rotation3DEffect(.degrees(180),axis:(x:0,y:0,z:1)).rotationEffect(.degrees(-10)).offset(x:-65,y:-227)
+            MinionsTeeth().stroke(style: StrokeStyle(lineWidth:2, lineJoin: .round)).rotation3DEffect(.degrees(180),axis:(x:0,y:0,z:1)).rotationEffect(.degrees(-10)).offset(x:-65,y:-227)
             MinionsLip().stroke(style: StrokeStyle(lineWidth:4, lineJoin: .round))
         }
     }
@@ -236,37 +239,37 @@ struct MinionsGlassesView: View {
         ZStack{
             Path(roundedRect :CGRect(x:95,y:184,width:150,height: 18), cornerRadius: 3)
                 .fill(Color.black)
-            MinionsSingleGlassesView()
-            MinionsSingleGlassesView().rotation3DEffect(.degrees(180),axis:(x:0.0,y:1.0,z:0.0))
+            MinionsSingleGlassesView().offset(x: 0, y: 0)
+            MinionsSingleGlassesView().rotation3DEffect(.degrees(180),axis:(x:0.0,y:1.0,z:0.0)).offset(x: -33, y: 0)
         }
     }
 }
 struct MinionsSingleGlassesView:View{
     var body: some View {
         ZStack{
-            Path(ellipseIn: CGRect(x: 114, y: 158, width: 50, height: 50))
+            Path(ellipseIn: CGRect(x: 110, y: 160, width: 62, height: 62))
                 .fill(Color.black)
             // 鏡框
-            Path(ellipseIn: CGRect(x: 117, y: 161, width: 44, height: 44))
+            Path(ellipseIn: CGRect(x: 115, y: 164, width: 53, height: 53))
                 .fill(Color.gray)
             // 眼框
-            Path(ellipseIn: CGRect(x: 120, y: 164, width: 37, height: 37))
+            Path(ellipseIn: CGRect(x: 120, y: 169, width: 42, height: 42))
                 .fill(Color.black)
             // 眼白
-            Path(ellipseIn: CGRect(x: 122, y: 166, width: 35, height: 35))
+            Path(ellipseIn: CGRect(x: 123, y: 172, width: 36, height: 36))
                 .fill(Color.white)
             // 眼珠
-            Path(ellipseIn: CGRect(x: 136, y: 180, width: 11, height: 11))
+            Path(ellipseIn: CGRect(x: 135, y: 183, width: 13, height: 13))
                 .fill(Color.black)
             // 黑眼圈_上
             Path{(path) in
                 path.move(to: CGPoint(x: 120, y: 152))
-                path.addQuadCurve(to: CGPoint(x:164,y:165), control: CGPoint(x:149,y:145))
+                path.addQuadCurve(to: CGPoint(x:164,y:168), control: CGPoint(x:149,y:145))
             }.fill(Color.black)
             // 黑眼圈_下
             Path{(path) in
-                path.move(to: CGPoint(x: 163, y: 211))
-                path.addQuadCurve(to: CGPoint(x:136,y:215), control: CGPoint(x:152,y:221))
+                path.move(to: CGPoint(x: 163, y: 220))
+                path.addQuadCurve(to: CGPoint(x:136,y:225), control: CGPoint(x:152,y:229))
             }.fill(Color.black)
         }
     }
@@ -292,7 +295,7 @@ struct MinionsClothesView: View {
                 Path(ellipseIn: CGRect(x: 213, y: 295, width: 7, height: 7)).fill(Color.black)
             }
             //口袋
-            MinionsPocket()..stroke(style: StrokeStyle(lineWidth:8, lineJoin: .round))
+            MinionsPocket().stroke(style: StrokeStyle(lineWidth:8, lineJoin: .round))
             MinionsPocket().fill(Color(red: 8/255, green: 109/255, blue: 187/255))
         }
     }
@@ -302,8 +305,8 @@ struct MinionsCloth1:Shape{
         Path{ (path) in
             path.move(to: CGPoint(x: 118, y: 291))// 左上角start
             path.addQuadCurve(to: CGPoint(x:219,y:293), control: CGPoint(x:168,y:301))// -
-            path.addQuadCurve(to: CGPoint(x:242,y:330), control: CGPoint(x:217,y:330))// L
-            path.addCurve(to: CGPoint(x:100,y:329), control1: CGPoint(x:220,y:387), control2: CGPoint(x:118,y:378))// U
+            path.addQuadCurve(to: CGPoint(x:243,y:330), control: CGPoint(x:215,y:325))// L
+            path.addCurve(to: CGPoint(x:99,y:329), control1: CGPoint(x:220,y:387), control2: CGPoint(x:118,y:378))// U
             path.addQuadCurve(to: CGPoint(x:118,y:291), control: CGPoint(x:120,y:319))// 」
             path.closeSubpath()
         }
@@ -338,9 +341,9 @@ struct MinionsBaldric:Shape{
             path.closeSubpath()
             // right肩帶
             path.move(to: CGPoint(x: 246, y: 240))// 右上角start
-            path.addLine(to: CGPoint(x:209,y:300))// /
-            path.addLine(to: CGPoint(x:217,y:305))// \
-            path.addLine(to: CGPoint(x:244,y:261))// /
+            path.addLine(to: CGPoint(x:208,y:302))// /
+            path.addLine(to: CGPoint(x:218,y:306))// \
+            path.addLine(to: CGPoint(x:246,y:260))// /
             path.addLine(to: CGPoint(x: 246, y: 240))// |
             path.closeSubpath()
         }
@@ -351,8 +354,8 @@ struct MinionsPocket:Shape{
         Path{ (path) in
             path.move(to:CGPoint(x:152,y:311))// 左上角start
             path.addLine(to: CGPoint(x:184,y:311))// -
-            path.addLine(to: CGPoint(x:180,y:327))// |
-            path.addArc(center:CGPoint(x:168,y:323),radius:12,startAngle:.degrees(20),endAngle:.degrees(150),clockwise:false)// U
+            path.addLine(to: CGPoint(x:182,y:327))// |
+            path.addArc(center:CGPoint(x:168,y:323),radius:14,startAngle:.degrees(20),endAngle:.degrees(150),clockwise:false)// U
             path.addLine(to: CGPoint(x:152,y:311))// |，接回原點
             path.closeSubpath()
         }
