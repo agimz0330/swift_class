@@ -234,7 +234,7 @@ struct MinionsLeg:Shape{
 struct MinionsGlassesView: View {
     var body: some View {
         ZStack{
-            Path(roundedRect :CGRect(x:95,y:184,width:150,height: 20))
+            Path(roundedRect :CGRect(x:95,y:184,width:150,height: 18), cornerRadius: 3)
                 .fill(Color.black)
             MinionsSingleGlassesView()
             MinionsSingleGlassesView().rotation3DEffect(.degrees(180),axis:(x:0.0,y:1.0,z:0.0))
@@ -247,26 +247,26 @@ struct MinionsSingleGlassesView:View{
             Path(ellipseIn: CGRect(x: 114, y: 158, width: 50, height: 50))
                 .fill(Color.black)
             // 鏡框
-            Path(ellipseIn: CGRect(x: 117, y: 161, width: 43, height: 43))
+            Path(ellipseIn: CGRect(x: 117, y: 161, width: 44, height: 44))
                 .fill(Color.gray)
             // 眼框
-            Path(ellipseIn: CGRect(x: 120, y: 164, width: 36, height: 36))
+            Path(ellipseIn: CGRect(x: 120, y: 164, width: 37, height: 37))
                 .fill(Color.black)
             // 眼白
-            Path(ellipseIn: CGRect(x: 122, y: 166, width: 29, height: 29))
+            Path(ellipseIn: CGRect(x: 122, y: 166, width: 32, height: 32))
                 .fill(Color.white)
             // 眼珠
-            Path(ellipseIn: CGRect(x: 132, y: 175, width: 5, height: 5))
+            Path(ellipseIn: CGRect(x: 134, y: 178, width: 5, height: 5))
                 .fill(Color.black)
             // 黑眼圈_上
             Path{(path) in
                 path.move(to: CGPoint(x: 120, y: 152))
-                path.addQuadCurve(to: CGPoint(x:164,y:163), control: CGPoint(x:149,y:145))
+                path.addQuadCurve(to: CGPoint(x:164,y:165), control: CGPoint(x:149,y:145))
             }.fill(Color.black)
             // 黑眼圈_下
             Path{(path) in
                 path.move(to: CGPoint(x: 163, y: 211))
-                path.addQuadCurve(to: CGPoint(x:136,y:219), control: CGPoint(x:152,y:221))
+                path.addQuadCurve(to: CGPoint(x:136,y:215), control: CGPoint(x:152,y:221))
             }.fill(Color.black)
         }
     }
@@ -289,7 +289,7 @@ struct MinionsClothesView: View {
                 //left_button
                 Path(ellipseIn: CGRect(x: 119, y: 295, width: 7, height: 7)).fill(Color.black)
                 //right_button
-                Path(ellipseIn: CGRect(x: 217, y: 296, width: 7, height: 7)).fill(Color.black)
+                Path(ellipseIn: CGRect(x: 214, y: 295, width: 7, height: 7)).fill(Color.black)
             }
             //口袋
             MinionsPocket()..stroke(style: StrokeStyle(lineWidth:8, lineJoin: .round))
@@ -303,7 +303,7 @@ struct MinionsCloth1:Shape{
             path.move(to: CGPoint(x: 118, y: 291))// 左上角start
             path.addQuadCurve(to: CGPoint(x:219,y:293), control: CGPoint(x:168,y:301))// -
             path.addQuadCurve(to: CGPoint(x:242,y:330), control: CGPoint(x:217,y:330))// L
-            path.addCurve(to: CGPoint(x:100,y:329), control1: CGPoint(x:212,y:375), control2: CGPoint(x:121,y:368))// U
+            path.addCurve(to: CGPoint(x:100,y:329), control1: CGPoint(x:213,y:380), control2: CGPoint(x:118,y:378))// U
             path.addQuadCurve(to: CGPoint(x:118,y:291), control: CGPoint(x:120,y:319))// L
             path.closeSubpath()
         }
@@ -337,11 +337,11 @@ struct MinionsBaldric:Shape{
             path.addLine(to: CGPoint(x:94,y:242))// |
             path.closeSubpath()
             // right肩帶
-            path.move(to: CGPoint(x: 244, y: 242))// 右上角start
+            path.move(to: CGPoint(x: 246, y: 240))// 右上角start
             path.addLine(to: CGPoint(x:211,y:299))// /
             path.addLine(to: CGPoint(x:217,y:305))// \
             path.addLine(to: CGPoint(x:244,y:261))// /
-            path.addLine(to: CGPoint(x: 244, y: 242))// |
+            path.addLine(to: CGPoint(x: 246, y: 240))// |
             path.closeSubpath()
         }
     }
@@ -352,10 +352,9 @@ struct MinionsPocket:Shape{
             path.move(to:CGPoint(x:152,y:311))// 左上角start
             path.addLine(to: CGPoint(x:184,y:311))// -
             path.addLine(to: CGPoint(x:180,y:327))// |
-            path.addArc(center:CGPoint(x:167,y:323),radius:12,startAngle:.degrees(30),endAngle:.degrees(150),clockwise:false)// U
+            path.addArc(center:CGPoint(x:168,y:323),radius:12,startAngle:.degrees(20),endAngle:.degrees(150),clockwise:false)// U
             path.addLine(to: CGPoint(x:152,y:311))// |，接回原點
             path.closeSubpath()
         }
     }
 }
-
