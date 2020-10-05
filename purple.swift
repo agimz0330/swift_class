@@ -9,7 +9,7 @@ import SwiftUI
 struct ContentView: View {
     let MinionsColor:[Double]=[127,62,152]
     var body: some View {
-        HStack{
+        VStack{
             // text
             Text("Booms !!")
                 .foregroundColor(Color.orange)
@@ -253,10 +253,10 @@ struct MinionsSingleGlassesView:View{
             Path(ellipseIn: CGRect(x: 120, y: 164, width: 37, height: 37))
                 .fill(Color.black)
             // 眼白
-            Path(ellipseIn: CGRect(x: 122, y: 166, width: 32, height: 32))
+            Path(ellipseIn: CGRect(x: 122, y: 166, width: 33, height: 33))
                 .fill(Color.white)
             // 眼珠
-            Path(ellipseIn: CGRect(x: 134, y: 178, width: 5, height: 5))
+            Path(ellipseIn: CGRect(x: 134, y: 178, width: 8, height: 8))
                 .fill(Color.black)
             // 黑眼圈_上
             Path{(path) in
@@ -289,7 +289,7 @@ struct MinionsClothesView: View {
                 //left_button
                 Path(ellipseIn: CGRect(x: 119, y: 295, width: 7, height: 7)).fill(Color.black)
                 //right_button
-                Path(ellipseIn: CGRect(x: 214, y: 295, width: 7, height: 7)).fill(Color.black)
+                Path(ellipseIn: CGRect(x: 213, y: 295, width: 7, height: 7)).fill(Color.black)
             }
             //口袋
             MinionsPocket()..stroke(style: StrokeStyle(lineWidth:8, lineJoin: .round))
@@ -303,7 +303,7 @@ struct MinionsCloth1:Shape{
             path.move(to: CGPoint(x: 118, y: 291))// 左上角start
             path.addQuadCurve(to: CGPoint(x:219,y:293), control: CGPoint(x:168,y:301))// -
             path.addQuadCurve(to: CGPoint(x:242,y:330), control: CGPoint(x:217,y:330))// L
-            path.addCurve(to: CGPoint(x:100,y:329), control1: CGPoint(x:213,y:380), control2: CGPoint(x:118,y:378))// U
+            path.addCurve(to: CGPoint(x:100,y:329), control1: CGPoint(x:215,y:383), control2: CGPoint(x:118,y:378))// U
             path.addQuadCurve(to: CGPoint(x:118,y:291), control: CGPoint(x:120,y:319))// L
             path.closeSubpath()
         }
@@ -319,10 +319,10 @@ struct MinionsCloth2:Shape{
             path.addLine(to: CGPoint(x:129,y:379))// -
             path.addLine(to: CGPoint(x:141,y:365))// /
             // right褲管
-            path.move(to: CGPoint(x: 216, y: 360))// 右上角start
+            path.move(to: CGPoint(x: 217, y: 358))// 右上角start
             path.addLine(to: CGPoint(x:208,y:379))// /
             path.addLine(to: CGPoint(x:194,y:382))// -
-            path.addLine(to: CGPoint(x:187,y:370))// \
+            path.addLine(to: CGPoint(x:185,y:368))// \
         }
     }
 }
@@ -338,7 +338,7 @@ struct MinionsBaldric:Shape{
             path.closeSubpath()
             // right肩帶
             path.move(to: CGPoint(x: 246, y: 240))// 右上角start
-            path.addLine(to: CGPoint(x:211,y:299))// /
+            path.addLine(to: CGPoint(x:209,y:300))// /
             path.addLine(to: CGPoint(x:217,y:305))// \
             path.addLine(to: CGPoint(x:244,y:261))// /
             path.addLine(to: CGPoint(x: 246, y: 240))// |
