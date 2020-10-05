@@ -253,10 +253,10 @@ struct MinionsSingleGlassesView:View{
             Path(ellipseIn: CGRect(x: 120, y: 164, width: 37, height: 37))
                 .fill(Color.black)
             // 眼白
-            Path(ellipseIn: CGRect(x: 122, y: 166, width: 33, height: 33))
+            Path(ellipseIn: CGRect(x: 122, y: 166, width: 35, height: 35))
                 .fill(Color.white)
             // 眼珠
-            Path(ellipseIn: CGRect(x: 134, y: 178, width: 8, height: 8))
+            Path(ellipseIn: CGRect(x: 136, y: 180, width: 11, height: 11))
                 .fill(Color.black)
             // 黑眼圈_上
             Path{(path) in
@@ -276,7 +276,7 @@ struct MinionsClothesView: View {
         ZStack{
             Group(){
                 // 腿
-                MinionsCloth2()..stroke(style: StrokeStyle(lineWidth:8, lineJoin: .round))
+                MinionsCloth2().stroke(style: StrokeStyle(lineWidth:8, lineJoin: .round))
                 MinionsCloth2().fill(Color(red: 8/255, green: 109/255, blue: 187/255))
                 // 主要布料
                 MinionsCloth1().stroke(style: StrokeStyle(lineWidth:8, lineJoin: .round))
@@ -303,7 +303,7 @@ struct MinionsCloth1:Shape{
             path.move(to: CGPoint(x: 118, y: 291))// 左上角start
             path.addQuadCurve(to: CGPoint(x:219,y:293), control: CGPoint(x:168,y:301))// -
             path.addQuadCurve(to: CGPoint(x:242,y:330), control: CGPoint(x:217,y:330))// L
-            path.addCurve(to: CGPoint(x:100,y:329), control1: CGPoint(x:217,y:385), control2: CGPoint(x:118,y:378))// U
+            path.addCurve(to: CGPoint(x:100,y:329), control1: CGPoint(x:220,y:387), control2: CGPoint(x:118,y:378))// U
             path.addQuadCurve(to: CGPoint(x:118,y:291), control: CGPoint(x:120,y:319))// 」
             path.closeSubpath()
         }
