@@ -303,8 +303,8 @@ struct MinionsCloth1:Shape{
             path.move(to: CGPoint(x: 118, y: 291))// 左上角start
             path.addQuadCurve(to: CGPoint(x:219,y:293), control: CGPoint(x:168,y:301))// -
             path.addQuadCurve(to: CGPoint(x:242,y:330), control: CGPoint(x:217,y:330))// L
-            path.addCurve(to: CGPoint(x:100,y:329), control1: CGPoint(x:215,y:383), control2: CGPoint(x:118,y:378))// U
-            path.addQuadCurve(to: CGPoint(x:118,y:291), control: CGPoint(x:120,y:319))// L
+            path.addCurve(to: CGPoint(x:100,y:329), control1: CGPoint(x:217,y:385), control2: CGPoint(x:118,y:378))// U
+            path.addQuadCurve(to: CGPoint(x:118,y:291), control: CGPoint(x:120,y:319))// 」
             path.closeSubpath()
         }
     }
